@@ -29,13 +29,68 @@
       <p id="currentDay" class="lead"></p>
     </header>
     <div class="container">
+      
+      <div class="row" >
+        <p class="hour col-1" style="text-align: right; padding: 1.5em; margin-bottom: 0em">8AM</p>      
+        <textarea class="description col-8"  ></textarea>     
+        <button class="saveBtn col-1" data-time="8AM"><i class="fas fa-edit" ></i></button>
+      </div>
 
       <div class="row" >
-        <p class="hour col-1" style="text-align: right; padding: 1.5em; margin-bottom: 0em">9AM</p>
-      
-        <textarea class="description col-8" data-time="9a" ></textarea>     
+        <p class="hour col-1" style="text-align: right; padding: 1.5em; margin-bottom: 0em">9AM</p>      
+        <textarea class="description col-8" data-time="9AM" ></textarea>     
         <button class="saveBtn col-1" ><i class="fas fa-edit" ></i></button>
-      </div>   
+      </div> 
+      
+      <div class="row" >
+        <p class="hour col-1" style="text-align: right; padding: 1.5em; margin-bottom: 0em">10AM</p>      
+        <textarea class="description col-8" data-time="10AM" ></textarea>     
+        <button class="saveBtn col-1" ><i class="fas fa-edit" ></i></button>
+      </div>
+
+      <div class="row" >
+        <p class="hour col-1" style="text-align: right; padding: 1.5em; margin-bottom: 0em">11AM</p>      
+        <textarea class="description col-8" data-time="11AM" ></textarea>     
+        <button class="saveBtn col-1" ><i class="fas fa-edit" ></i></button>
+      </div>
+
+      <div class="row" >
+        <p class="hour col-1" style="text-align: right; padding: 1.5em; margin-bottom: 0em">12PM</p>      
+        <textarea class="description col-8" data-time="12PM" ></textarea>     
+        <button class="saveBtn col-1" ><i class="fas fa-edit" ></i></button>
+      </div>
+
+      <div class="row" >
+        <p class="hour col-1" style="text-align: right; padding: 1.5em; margin-bottom: 0em">1PM</p>      
+        <textarea class="description col-8" data-time="1PM" ></textarea>     
+        <button class="saveBtn col-1" ><i class="fas fa-edit" ></i></button>
+      </div>
+
+      <div class="row" >
+        <p class="hour col-1" style="text-align: right; padding: 1.5em; margin-bottom: 0em">2PM</p>      
+        <textarea class="description col-8" data-time="2PM" ></textarea>     
+        <button class="saveBtn col-1" ><i class="fas fa-edit" ></i></button>
+      </div>
+
+      <div class="row" >
+        <p class="hour col-1" style="text-align: right; padding: 1.5em; margin-bottom: 0em">3PM</p>      
+        <textarea class="description col-8" data-time="3PM" ></textarea>     
+        <button class="saveBtn col-1" ><i class="fas fa-edit" ></i></button>
+      </div>
+
+      <div class="row" >
+        <p class="hour col-1" style="text-align: right; padding: 1.5em; margin-bottom: 0em">4PM</p>      
+        <textarea class="description col-8" data-time="4PM" ></textarea>     
+        <button class="saveBtn col-1" ><i class="fas fa-edit" ></i></button>
+      </div>
+
+      <div class="row" >
+        <p class="hour col-1" style="text-align: right; padding: 1.5em; margin-bottom: 0em">5PM</p>      
+        <textarea class="description col-8"  ></textarea>     
+        <button class="saveBtn col-1" data-time="5PM"><i class="fas fa-edit" ></i></button>
+      </div>
+
+      
 
     </div>
 
@@ -46,14 +101,15 @@
 
       $("button").on("click", function(event){
 
-        if(localStorage.getItem("9a") === null)
+        if(localStorage.getItem("9a") !== null)
         {
-          localStorage.setItem("9a", $(event.target).siblings("textarea").val())
-        }
+          localStorage.clear("9a")
+          localStorage.setItem("9a", $("textarea").val())         
+       }
 
-        else{
-          localStorage.clear();
-          localStorage.setItem("9a", $(event.target).siblings("textarea").val())
+        else{         
+          localStorage.setItem("9a", $("textarea").val())
+          console.log(localStorage.getItem("9a"))
         }
       })
   
@@ -62,12 +118,43 @@
 
       
     </script>
-    
+
     <script>
       $('#currentDay').html(moment().format("dddd, MMMM Do YYYY"))
       let time = moment().format("H")
+
       console.log(time)
       
+
+      if(parseInt($("button").attr("data-time")) < parseInt(time))
+      {
+        console.log(time)
+        $("textarea").addClass("future")
+      }
+ //     })
+
+      
+    </script>
+
+    <script>
+    
+   /*    for (let i = 0; i < 10; i++) {
+        let tag = $("p");
+        tag.text = i+"AM";
+        $(".container").append(tag);
+        
+      }
+
+
+
+   for (let i = 0; i < $("p", ".container").length; i++) {
+      $("p", ".container").addClass("future");
+      
+    }
+*/
+
+
+
     </script>
 
 
