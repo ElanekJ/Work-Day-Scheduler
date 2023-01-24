@@ -10,8 +10,7 @@ $("button").on("click", function(event){
 
 
 for (let i = 0; i < $("textarea", ".container").length; i++) {
-  
-}
+  $("button").siblings("textarea").addClass("past");}
 
 $('#currentDay').html(moment().format("dddd, MMMM Do YYYY"))
   let time = moment().format("H")
