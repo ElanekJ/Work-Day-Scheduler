@@ -30,6 +30,7 @@ $('#currentDay').html(moment().format("dddd, MMMM Do YYYY"))
   else{
     $("button").attr("data-time",([i+8])).siblings("textarea").addClass("future");
   }
+}
 
 $("#8am").text(localStorage.getItem("8"))
 $("#9am").text(localStorage.getItem("9"))
@@ -42,7 +43,7 @@ $("#3pm").text(localStorage.getItem("15"))
 $("#4pm").text(localStorage.getItem("16"))
 $("#5pm").text(localStorage.getItem("17"))
   
-}
+
 
 
 
